@@ -1,0 +1,24 @@
+diff --git a/SubsReTimer/SubsReTimer.csproj b/SubsReTimer/SubsReTimer.csproj
+index e1daf07..6473e1c 100644
+--- a/SubsReTimer/SubsReTimer.csproj
++++ b/SubsReTimer/SubsReTimer.csproj
+@@ -13,6 +13,7 @@
+     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+     <FileAlignment>512</FileAlignment>
+     <ApplicationIcon>Art\icon.ico</ApplicationIcon>
++    <ApplicationManifest>SubsReTimer.manifest</ApplicationManifest>
+   </PropertyGroup>
+   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+     <DebugSymbols>true</DebugSymbols>
+@@ -33,10 +34,7 @@
+     <WarningLevel>4</WarningLevel>
+   </PropertyGroup>
+   <ItemGroup>
+-    <Reference Include="SourceGrid, Version=4.30.4523.28047, Culture=neutral, PublicKeyToken=df6f5e538749e85d, processorArchitecture=MSIL">
+-      <SpecificVersion>False</SpecificVersion>
+-      <HintPath>..\SourceGrid\bin\Debug\SourceGrid.dll</HintPath>
+-    </Reference>
++    <Reference Include="SourceGrid" />
+     <Reference Include="System" />
+     <Reference Include="System.Core">
+       <RequiredTargetFramework>3.5</RequiredTargetFramework>

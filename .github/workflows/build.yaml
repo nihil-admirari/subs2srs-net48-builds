@@ -1,0 +1,38 @@
+name: Build subs2srs
+on: workflow_dispatch
+
+jobs:
+  build:
+    name: Build subs2srs
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+      with:
+        msbuild-architecture: x64
+
+    - name: Build subs2srs
+      shell: pwsh
+      run: .\BuildSubs2Srs.ps1
+
+    - name: Build SubsReTimer
+      shell: pwsh
+      run: .\BuildSubsReTimer.ps1
+
+    - name: Prepare release
+      shell: pwsh
+      run: .\PrepareRelease.ps1
+
+    - name: Release
+      shell: pwsh
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        $date = Get-Date
+        hub.exe release create `
+                (Get-ChildItem artefacts\*.zip | % { '-a', $_.FullName }) `
+                -a artefacts\SHA2-512SUMS `
+                -m "Release $(Get-Date -Date $date -Format 'yyyy-MM-dd HH:mm')" `
+                -t master (Get-Date -Date $date -Format 'yyyy-MM-dd-HH-mm')

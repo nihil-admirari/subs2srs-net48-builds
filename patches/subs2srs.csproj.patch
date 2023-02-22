@@ -1,0 +1,21 @@
+diff --git a/subs2srs/subs2srs.csproj b/subs2srs/subs2srs.csproj
+index 015749c..80fa950 100644
+--- a/subs2srs/subs2srs.csproj
++++ b/subs2srs/subs2srs.csproj
+@@ -33,6 +33,7 @@
+     <UpgradeBackupLocation>
+     </UpgradeBackupLocation>
+     <OldToolsVersion>3.5</OldToolsVersion>
++    <ApplicationManifest>subs2srs.manifest</ApplicationManifest>
+   </PropertyGroup>
+   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+     <DebugSymbols>true</DebugSymbols>
+@@ -90,7 +91,7 @@
+     <Reference Include="System.Drawing" />
+     <Reference Include="System.Windows.Forms" />
+     <Reference Include="System.Xml" />
+-    <Reference Include="taglib-sharp, Version=2.0.3.3, Culture=neutral, PublicKeyToken=db62eba44689b5b0, processorArchitecture=MSIL" />
++    <Reference Include="TagLibSharp" />
+   </ItemGroup>
+   <ItemGroup>
+     <Compile Include="DialogMkvExtract.cs">
